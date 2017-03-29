@@ -3,6 +3,7 @@ from .registry import package_language
 from cookiecutter.main import cookiecutter
 import json
 import urllib.request
+from lettherebe import ccwrapper
 
 def downloadtemplate(url):
     response = urllib.request.urlopen(url)
@@ -11,7 +12,7 @@ def downloadtemplate(url):
     return(text)
 
 
-#@package_language('python')
+@package_language('python')
 def set_up_python_package(full_name, email, github_username, 
                           project_name, project_short_description, 
                           license, version = '0.1.0'):
@@ -55,12 +56,13 @@ def set_up_python_package(full_name, email, github_username,
     jsondict['open_source_license'] = licensedict[license]
     jsondict['version'] = version
     jsondict['use_pytest'] = "y"
+    jsondict['language_name'] = "Python"
 
-    return(jsondict)
+    return(ccwrapper.projskeleton(jsondict))
     pass
 
 
-#@package_language('cpp')
+@package_language('cpp')
 def set_up_cpp_package(project_name, license):
     """
     Set up a basic C++ package with gTest infrastructure
@@ -82,7 +84,9 @@ def set_up_cpp_package(project_name, license):
                    "GNU": "GNU General Public License v3"}
     
     jsondict['kata'] = project_name
+    jsondict['project_name'] = project_name
     jsondict['license'] = licensedict[license]
+    jsondict['language_name'] = "C++"
  
-    return(jsondict)
+    return(ccwrapper.projskeleton(jsondict))
     pass
