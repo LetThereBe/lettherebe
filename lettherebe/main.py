@@ -1,3 +1,4 @@
+import os
 import click
 
 from .registry import service, package_language, repository_host
@@ -7,6 +8,10 @@ from .registry import service, package_language, repository_host
 def main():
     pass
 
+def ensure_config_run():
+    if os.path.exists('config.py'):
+        with open('config.py', 'r') as f:
+            exec(f.read())
 
 
 def ask_questions(name, handler):
@@ -29,6 +34,8 @@ def ask_questions(name, handler):
 
 @click.command()
 def quickstart():
+
+    ensure_config_run()
 
     click.echo(click.style("Welcome to LetThereBe!", 'red'))
     print('')
