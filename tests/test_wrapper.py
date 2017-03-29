@@ -27,7 +27,7 @@ def test_projskeleton():
     
     pjn = ccwrapper.projskeleton(info)
 
-    assert pjn == 'myproj'
+    assert pjn == 'tmp/myproj'
    # projskeleton.projskeleton("", "", "", "", "Python", "", "")
    # projskeleton.projskeleton("", "", "", "", "fortran", "", "")
 
