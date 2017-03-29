@@ -11,6 +11,23 @@ class Repository(object):
     def add_directory_to_repo(local_path, remote_path, message):
         raise NotImplementedError()
 
+    def instructions_to_get_repo(self):
+        raise NotImplementedError()
+
+
+GITHUB_EPILOGUE = """
+Your repository has been set up! You can see it in all its glory at:
+
+    {html_url}
+
+If you want to get it locally, you will need to make sure you have git installed,
+then you will be able to clone it with:
+
+    git clone {clone_url}
+
+Enjoy!
+"""
+
 
 class GitHubRepository(Repository):
 
@@ -48,6 +65,10 @@ class GitHubRepository(Repository):
         commit = self._repo.create_git_commit(tree=tree, message=message, parents=[git_commit])
         master = self._repo.get_git_ref('heads/master')
         master.edit(commit.sha)
+
+    def instructions_to_get_repo(self):
+        return GITHUB_EPILOGUE.strip().format(html_url=self._repo.html_url,
+                                              clone_url=self._repo.clone_url)
 
 
 @repository_host('github')

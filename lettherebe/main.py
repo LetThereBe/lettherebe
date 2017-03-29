@@ -17,7 +17,7 @@ def ask_questions(name, handler):
     parameters = []
     for argument in arguments:
         # TODO: recongize default values from functions
-        value = click.prompt(argument['description'], type=argument['type'])
+        value = click.prompt(argument['description'], type=argument['type'], hide_input='password' in argument['name'])
         parameters.append(value)
 
     print('Running setup for {0}... '.format(name), end='')
@@ -85,5 +85,11 @@ def quickstart():
 
     for s in services.split(','):
         ask_questions(s.strip(), service.members[s.strip()])
+
+    # Give final instructions_to_get_repo
+    print('')
+    click.echo(click.style("Epilogue", 'magenta'))
+    print('')
+    print(repo.instructions_to_get_repo())
 
 main.add_command(quickstart)
