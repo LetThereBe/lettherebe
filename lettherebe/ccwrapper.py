@@ -2,12 +2,6 @@ from cookiecutter.main import cookiecutter
 import json
 import urllib.request
 
-def downloadtemplate(url):
-    response = urllib.request.urlopen(url)
-    data = response.read()      
-    text = data.decode('utf-8')
-    return(text)
-
 def projskeleton(infodict):
     gitlocation = {
         "C++": "https://github.com/13coders/cookiecutter-kata-gtest", 
@@ -27,7 +21,7 @@ def projskeleton(infodict):
                  no_input=True, 
                  output_dir="/tmp")
 
-    return('tmp/' + infodict['project_name'])
+    return('/tmp/' + infodict['project_name'])
 
     
     
