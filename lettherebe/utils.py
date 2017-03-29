@@ -13,7 +13,6 @@ def extract_arguments(function):
         argument['name'] = arg_name
         argument['type'] = type(arg_type.split(',')[0].strip())
         argument['optional'] = 'optional' in arg_type
-        argument['description'] = arg_description
+        argument['description'] = arg_description[0]
         arguments.append(argument)
-    print(arguments)
     return arguments
