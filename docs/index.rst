@@ -9,19 +9,11 @@ Welcome to LetThereBe's documentation!
 LetThereBe automates the creation of a software project for collaborative development across any discipline to support best practice. It lowers the barrier for good practice development by providing an extension to `GitHub <https://github.com>`_ to generate an immediately usable project structure automatically.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    installation
    project_setup
-   license
+   write_plugin
    contributing
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   license
