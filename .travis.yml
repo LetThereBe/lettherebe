@@ -6,9 +6,12 @@ python:
   - 3.6
 
 install:
-  - pip install pytest flake8
+  - pip install pytest pytest-cov flake8 coveralls
 
 script:
   - flake8 lettherebe --ignore=E501
-  - py.test lettherebe
+  - py.test lettherebe --cov lettherebe
+
+after_success:
+  - coveralls
 
