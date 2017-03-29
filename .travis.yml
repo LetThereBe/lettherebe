@@ -1,0 +1,14 @@
+language: python
+
+python:
+  - 2.7
+  - 3.3
+  - 3.6
+
+install:
+  - pip install pytest flake8
+
+script:
+  - flake8 lettherebe --ignore=E501
+  - py.test lettherebe
+
