@@ -1,7 +1,11 @@
 Setting up a project
 ====================
 
-Information on how to get started setting up a new project using ``LetThereBe``.
+To get some simple instructions on how to use ``LetThereBe``, execute the command without any arguments:
+
+::
+
+    lettherebe
 
 Before setting up your project, you will need a `GitHub <https://github.com>`_ account. If you do not currently have one, you will need to register.
 
