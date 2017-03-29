@@ -1,9 +1,6 @@
 [![Documentation Status](https://readthedocs.org/projects/lettherebe/badge/?version=latest)](http://lettherebe.readthedocs.io/en/latest/?badge=latest)
 [![Build Status](https://travis-ci.org/LetThereBe/lettherebe.svg?branch=master)](https://travis-ci.org/LetThereBe/lettherebe)
 
-# lettherebe
-Command-line LetThereBe tool
-
 
 ## What is LetThereBe?
 
@@ -16,7 +13,9 @@ When setting up your project, LetThereBe will ask simple questions (e.g. softwar
 
 ## Installation
 
-For installation instructions, see INSTALL
+To install, you can just do:
+
+    pip install lettherebe
 
 ## Documentation
 
