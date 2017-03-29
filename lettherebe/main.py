@@ -3,8 +3,10 @@ import click
 from .registry import service, package_language, repository_host
 
 
+@click.group()
 def main():
-    return quickstart()
+    pass
+
 
 
 def ask_questions(name, handler):
@@ -19,10 +21,13 @@ def ask_questions(name, handler):
         parameters.append(value)
 
     print('Running setup for {0}... '.format(name), end='')
-    function(*parameters)
-    click.echo(click.style('done', 'green'))
+    try:
+        return function(*parameters)
+    finally:
+        click.echo(click.style('done', 'green'))
 
 
+@click.command()
 def quickstart():
 
     click.echo(click.style("Welcome to LetThereBe!", 'red'))
@@ -45,7 +50,7 @@ def quickstart():
     repo_host = click.prompt('Which service would you like to set up your repository on?',
                              default=default_repo_host, type=click.Choice(available_repo_hosts))
 
-    ask_questions(repo_host, repository_host.members[repo_host])
+    repo = ask_questions(repo_host, repository_host.members[repo_host])
 
     # Set up language
 
@@ -63,7 +68,10 @@ def quickstart():
     language = click.prompt('Which language would you like to set up a project for?',
                             default=default_language, type=click.Choice(available_languages))
 
-    ask_questions(language, package_language.members[language])
+    local_path = ask_questions(language, package_language.members[language])
+
+    # Add code to repository
+    repo.add_directory_to_repo(local_path, '.', 'Initial commit with package layout')
 
     # Set up services
 
@@ -77,3 +85,5 @@ def quickstart():
 
     for s in services.split(','):
         ask_questions(s.strip(), service.members[s.strip()])
+
+main.add_command(quickstart)
