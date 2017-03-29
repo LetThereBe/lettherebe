@@ -23,5 +23,4 @@ class HandlerRegistry(object):
 
 repository_host = HandlerRegistry()
 package_language = HandlerRegistry()
-documentation_host = HandlerRegistry()
-continuous_integration_host = HandlerRegistry()
+service = HandlerRegistry()
