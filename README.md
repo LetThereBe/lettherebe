@@ -1,5 +1,6 @@
 [![Documentation Status](https://readthedocs.org/projects/lettherebe/badge/?version=latest)](http://lettherebe.readthedocs.io/en/latest/?badge=latest)
 
+[![Build Status](https://travis-ci.org/LetThereBe/lettherebe.svg?branch=master)](https://travis-ci.org/LetThereBe/lettherebe)
 
 # lettherebe
 Command-line LetThereBe tool
