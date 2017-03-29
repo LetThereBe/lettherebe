@@ -24,6 +24,9 @@ LetThereBe documentation is available on ReadTheDocs:
 
 [http://lettherebe.readthedocs.io/en/latest/?badge=latest](http://lettherebe.readthedocs.io/en/latest/?badge=latest)
 
+## Contributing
+
+**Insert information on contributing to project**
 
 ## Bug reports
 
