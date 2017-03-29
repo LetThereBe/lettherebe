@@ -29,6 +29,7 @@ this is::
             # This should return a string with instructions on how to access
             # the repository and how to clone.
 
+
     @repository_host('name-of-service')
     def set_up_repo(argument1, argument2=False):
         """
@@ -44,6 +45,36 @@ this is::
         # create repo here then return class to provide abstract interface
         return MyRepository(...)
 
-It is important that this function returns a Repository subclass, but otherwise
-you can do anything you like in the function. All the rest will be taken care of
-by the ``lettherebe`` package!
+The questions for the command-line and website are taken from the docstring,
+which should be in NumpyDoc format. Default values can be specified by using
+keyword arguments. It is important that this function returns a Repository
+subclass, but otherwise you can do anything you like in the function. All the
+rest will be taken care of by the ``lettherebe`` package!
+
+Package templates for different languages
+-----------------------------------------
+
+To add support for a 'best practice template' for a new language, you will need
+to define a function as follows::
+
+    from lettherebe.registry import package_language
+
+    @package_language('fortran66')
+    def set_up_fortran66_package(tests=True):
+        """
+        Set up a basic Python package
+
+        Parameters
+        ----------
+        tests : bool, optional
+            Should tests be included?
+        """
+        directory = tempfile.mkdtemp()
+        # populate directory here
+        return directory
+
+The use of ``tests`` as the argument is just an example, and you can put any
+number of arguments/options. The function should write the generated files
+to a local temporary directory and return the path to this directory. The rest
+of the package will then automatically sync those generated files to the
+remote repository.
