@@ -15,10 +15,17 @@ def test_git_downloader():
 #    shutil.rmtree("for_test", ignore_errors=True)
 
 def test_projskeleton():
-    pjn = ccwrapper.projskeleton("myname", "test@ucl.ac.uk", 
-                              "gitname", "myproj", "Python", 
-                              "This is a test project", 
-                              "MIT")
+
+    info = {'full_name': "myname",
+            'email': "test@gmail.com", 
+            'github_username': "gitname", 
+            'project_name': "myproj", 
+            'language_name': "Python", 
+            'project_short_description': "This is a test project",  
+            'license': "BSD",
+            'version': '0.1.0'}
+    
+    pjn = ccwrapper.projskeleton(info)
 
     assert pjn == 'myproj'
    # projskeleton.projskeleton("", "", "", "", "Python", "", "")
