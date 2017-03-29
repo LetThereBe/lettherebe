@@ -17,6 +17,8 @@ To install, you can just do:
 
     pip install lettherebe
 
+See INSTALL for more detailed instructions.
+
 ## Documentation
 
 LetThereBe documentation is available on ReadTheDocs:
