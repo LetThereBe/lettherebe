@@ -14,7 +14,4 @@ def test_projskeleton():
             'version': '0.1.0'}
     
     pjn = ccwrapper.projskeleton(info)
-
-    assert pjn == '/tmp/myproj'
-
-
+    assert pjn.find('myproj') > 0

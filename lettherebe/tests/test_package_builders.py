@@ -16,10 +16,10 @@ def test_python_package_builder():
                                       "This is a test project",  
                                       "BSD",
                                       "0.1.0")
-    assert outloc == '/tmp/mypyproj'
+    assert outloc.find('mypyproj') > 0
 
 
 def test_cpp_package_builder():
     outloc = pl.set_up_cpp_package("mycppproj",
                                    "MIT")
-    assert outloc == '/tmp/mycppproj'
+    assert outloc.find('mycppproj')
