@@ -13,7 +13,7 @@ setup(
     name="lettherebe",
     description='LetThereBe Python library and command-line scripts',
     packages=['lettherebe'],
-    install_requires=['requests', 'pygithub', 'click', 'colorama', 'cookiecuttter'],
+    install_requires=['requests', 'pygithub', 'click', 'colorama', 'cookiecuttter', 'sphinx', 'numpydoc'],
     license='BSD',
     author="Mayeul d'Avezac, Ilektra Christidi, Alice Harpole, David Perez Suarez, Thomas Robitaille, Sinan Shi",
     author_email="thomas.robitaille@gmail.com",
